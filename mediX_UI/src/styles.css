@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.cat-img:hover{
+    cursor: pointer;
+}
+.pointer:hover{
+    cursor: pointer;
+}

@@ -8,6 +8,7 @@ import { CategoryCardsComponent } from '../Home_Components/category-cards/catego
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from '../Home_Components/home-page/home-page.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
     CategoryCardsComponent,
     LoginComponent,
     HomePageComponent,
-    EmployeeLoginComponent
+    EmployeeLoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
