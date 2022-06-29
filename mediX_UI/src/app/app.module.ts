@@ -10,6 +10,7 @@ import { HomePageComponent } from '../Home_Components/home-page/home-page.compon
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     EmployeeLoginComponent,
     FooterComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
