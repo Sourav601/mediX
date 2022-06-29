@@ -12,3 +12,12 @@
     animation-duration: 15s; 
     animation-iteration-count: infinite;
  }
+ .center{
+   display: flex;
+   justify-content: center;
+ }
+ .round-bordered{
+   border: 4px solid; 
+   border-radius: 20px;
+   border-color:whitesmoke;
+ }
