@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavbarComponent } from './navbar/navbar.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
+import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { CarouselComponent } from '../Home_Components/carousel/carousel.component';
 import { CategoryCardsComponent } from '../Home_Components/category-cards/category-cards.component';
@@ -9,8 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from '../Home_Components/home-page/home-page.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
+import { SignUpService } from './services/sign-up/sign-up.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +32,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SignUpService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
