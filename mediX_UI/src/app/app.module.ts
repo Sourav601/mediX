@@ -15,7 +15,7 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
 import { FooterComponent } from './footer/footer.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-import { SignUpService } from './services/sign-up/sign-up.service';
+import { ApiService } from './services/api/api.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { SignUpService } from './services/sign-up/sign-up.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SignUpService],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

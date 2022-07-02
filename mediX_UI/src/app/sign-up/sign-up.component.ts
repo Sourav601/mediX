@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SignUpService } from '../services/sign-up/sign-up.service';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
-  constructor(private _signupService: SignUpService, private _router: Router) {}
+  constructor(private _router: Router, private _api: ApiService) {}
 
   ngOnInit(): void {}
 
@@ -33,25 +33,25 @@ export class SignUpComponent implements OnInit {
   });
 
   signUp() {
-    //console.log(this.signUpForm);
-    this._signupService
-      .postData(
-        this.signUpForm.value.userName,
-        this.signUpForm.value.email,
-        this.signUpForm.value.mobileNo,
-        this.signUpForm.value.password,
-        this.signUpForm.value.pincode,
-        this.signUpForm.value.address
-      )
-      .subscribe(
-        (result: any) => {
-          console.log('success : ', result);
-          this._router.navigate(['dashboard']);
-        },
-        (error: any) => {
-          console.log('error : ', error);
-        }
-      );
+    const body = {
+      name: this.signUpForm.value.userName,
+      email: this.signUpForm.value.email,
+      mobileNo: this.signUpForm.value.mobileNo,
+      password: this.signUpForm.value.password,
+      pincode: this.signUpForm.value.pincode,
+      address: this.signUpForm.value.address,
+    };
+
+    this._api.post(body, 'signUp').subscribe(
+      (result: any) => {
+        console.log('success : ', result);
+        //this._router.navigate(['dashboard']);
+      },
+      (error: any) => {
+        console.log('error : ', error);
+        //this._router.navigate(['dashboard']);
+      }
+    );
   }
 
   get userName() {
