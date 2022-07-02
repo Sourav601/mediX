@@ -42,7 +42,7 @@ export class SignUpComponent implements OnInit {
       address: this.signUpForm.value.address,
     };
 
-    this._api.post(body, 'signUp').subscribe(
+    this._api.post(body, 'signup').subscribe(
       (result: any) => {
         console.log('success : ', result);
         //this._router.navigate(['dashboard']);
