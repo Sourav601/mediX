@@ -10,7 +10,6 @@ import { ApiService } from '../services/api/api.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private _router: Router, private _api: ApiService) {}
-
   ngOnInit(): void {}
 
   loginForm = new FormGroup({
@@ -34,13 +33,13 @@ export class LoginComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         console.log('success : ', result);
-        alert('Success: Check console for details');
-        //this._router.navigate(['dashboard']);
+        alert('Login Successfull!');
+        this._router.navigate(['']);
       },
       (error: any) => {
         console.log('error : ', error.error.Message);
-        alert('Error: Check console for details');
-        //this._router.navigate(['dashboard']);
+        alert('Login Unsuccessfull. Please check your email & password.');
+        //this._router.navigate(['dashboard'])
       }
     );
   }

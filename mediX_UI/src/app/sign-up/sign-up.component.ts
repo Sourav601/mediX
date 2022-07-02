@@ -53,12 +53,12 @@ export class SignUpComponent implements OnInit {
     this._api.post(body, 'signup').subscribe(
       (result: any) => {
         console.log('success : ', result);
-        alert('Success: Check console for details');
-        //this._router.navigate(['dashboard']);
+        alert("Sign up Successfull! Please Login with your New Account!");
+        this._router.navigate(['login']);
       },
       (error: any) => {
         console.log('error : ', error);
-        alert('Error: Check console for details');
+        alert("Sign up Failed! Please try again!");
         //this._router.navigate(['dashboard']);
       }
     );
