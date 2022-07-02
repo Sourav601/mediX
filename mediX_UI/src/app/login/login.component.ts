@@ -14,10 +14,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+'),
+    ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.pattern('[A-Za-z0-9@$!%*?&]{6,60}'),
     ]),
   });
 
@@ -31,10 +34,12 @@ export class LoginComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         console.log('success : ', result);
+        alert('Success: Check console for details');
         //this._router.navigate(['dashboard']);
       },
       (error: any) => {
         console.log('error : ', error.error.Message);
+        alert('Error: Check console for details');
         //this._router.navigate(['dashboard']);
       }
     );

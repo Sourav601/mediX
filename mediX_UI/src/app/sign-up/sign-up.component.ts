@@ -16,20 +16,28 @@ export class SignUpComponent implements OnInit {
   signUpForm = new FormGroup({
     userName: new FormControl('', [
       Validators.required,
-      Validators.minLength(3),
+      Validators.pattern('[a-zA-Z0-9 ]{3,255}'),
     ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+'),
+    ]),
     mobileNo: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(11),
+      Validators.pattern('0?[0-9]{10}'),
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.pattern('[A-Za-z0-9@$!%*?&]{6,60}'),
     ]),
-    pincode: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required]),
+    pincode: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[0-9]{6}'),
+    ]),
+    address: new FormControl('', [
+      Validators.required,
+      Validators.pattern("[a-zA-z0-9/\\''(), :-]{2,255}"),
+    ]),
   });
 
   signUp() {
@@ -45,10 +53,12 @@ export class SignUpComponent implements OnInit {
     this._api.post(body, 'signup').subscribe(
       (result: any) => {
         console.log('success : ', result);
+        alert('Success: Check console for details');
         //this._router.navigate(['dashboard']);
       },
       (error: any) => {
         console.log('error : ', error);
+        alert('Error: Check console for details');
         //this._router.navigate(['dashboard']);
       }
     );
