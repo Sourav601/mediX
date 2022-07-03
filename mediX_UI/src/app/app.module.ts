@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { ApiService } from './services/api/api.service';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ApiService } from './services/api/api.service';
     EmployeeLoginComponent,
     FooterComponent,
     SignUpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
