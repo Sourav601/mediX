@@ -17,6 +17,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { ApiService } from './services/api/api.service';
 import { ProfileComponent } from './user/profile/profile.component';
+import { ViewByCategoryComponent } from './viewProduct/view-by-category/view-by-category.component';
+import { SingleProductInListComponent } from './viewProduct/single-product-in-list/single-product-in-list.component';
+import { ItemPageComponent } from './viewProduct/item-page/item-page.component';
+import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { ProfileComponent } from './user/profile/profile.component';
     EmployeeLoginComponent,
     FooterComponent,
     SignUpComponent,
-    ProfileComponent
+    ProfileComponent,
+    ViewByCategoryComponent,
+    SingleProductInListComponent,
+    ItemPageComponent,
+    NavbarLoginComponent
   ],
   imports: [
     BrowserModule,
