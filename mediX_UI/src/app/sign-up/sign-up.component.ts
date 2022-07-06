@@ -28,7 +28,9 @@ export class SignUpComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern('[A-Za-z0-9@$!%*?&]{6,60}'),
+      Validators.pattern(
+        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
+      ),
     ]),
     pincode: new FormControl('', [
       Validators.required,
@@ -54,11 +56,11 @@ export class SignUpComponent implements OnInit {
       (result: any) => {
         console.log('success : ', result);
         this._router.navigate(['login']);
-        alert("Sign up Successfull! Please Login with your New Account!");
+        alert('Sign up Successfull! Please Login with your New Account!');
       },
       (error: any) => {
         console.log('error : ', error);
-        alert("Sign up Failed! Please try again!");
+        alert('Sign up Failed! Please try again!');
         //this._router.navigate(['dashboard']);
       }
     );
