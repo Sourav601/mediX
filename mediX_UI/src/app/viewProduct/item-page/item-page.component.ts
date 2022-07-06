@@ -23,4 +23,7 @@ show: boolean = false;
   showfun(){
     this.show = true;
   }
+  hidefun(){
+    this.show = false;
+  }
 }
