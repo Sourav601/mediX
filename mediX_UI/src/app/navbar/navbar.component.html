@@ -1,37 +1,83 @@
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="">medi<b>X</b></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink=""><span class="material-symbols-outlined">home</span>Home</a>
-                </li>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">medi<b>X</b></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink=""
+            ><span class="material-symbols-outlined">home</span>Home</a
+          >
+        </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="material-symbols-outlined symbol-bolt">bolt</span> Buy
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Medicines</a></li>
-                        <li><a class="dropdown-item" href="#">Healthcare Product</a></li>
-                        <li><a class="dropdown-item" href="#">Ayurvedic Products</a></li>
-                        <li><a class="dropdown-item" href="#">Medical Devices</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="material-symbols-outlined">Local_Mall</span>Cart</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Enter product name" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-        </div>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="material-symbols-outlined symbol-bolt">bolt</span> Buy
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Medicines</a></li>
+            <li><a class="dropdown-item" href="#">Healthcare Product</a></li>
+            <li><a class="dropdown-item" href="#">Ayurvedic Products</a></li>
+            <li><a class="dropdown-item" href="#">Medical Devices</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><span class="material-symbols-outlined">Local_Mall</span>Cart</a
+          >
+        </li>
+
+        <li>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Enter product name"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </li>
+
+        <li>
+          <a
+            *ngIf="isAuthorized"
+            class="nav-link"
+            routerLink="profile"
+            style="margin-left: 15px"
+            ><span class="material-symbols-outlined">Face</span>Profile</a
+          >
+          <a
+            *ngIf="!isAuthorized"
+            class="nav-link"
+            routerLink="login"
+            style="margin-left: 15px"
+            ><span class="material-symbols-outlined">Face</span>Login</a
+          >
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

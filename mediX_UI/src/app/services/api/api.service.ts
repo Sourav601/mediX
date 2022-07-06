@@ -7,13 +7,16 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private _http: HttpClient) {}
+  mediX_token: string;
+  constructor(private _http: HttpClient) {
+    this.mediX_token = localStorage.getItem('mediX_Auth') || '';
+  }
 
   post(body: Object, rel_url: string): Observable<any> {
     const url = environment.url + rel_url;
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: '',
+      Authorization: this.mediX_token,
     };
     return this._http.post<any>(url, body, { headers });
   }
@@ -22,8 +25,8 @@ export class ApiService {
     const url = environment.url + rel_url;
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: '',
+      Authorization: this.mediX_token,
     };
-    return this._http.post<any>(url, { headers });
+    return this._http.get<any>(url, { headers });
   }
 }

@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern('[A-Za-z0-9@$!%*?&]{6,60}'),
+      Validators.pattern(
+        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
+      ),
     ]),
   });
 
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password,
     };
 
-    this._api.post(body, 'signin').subscribe(
+    this._api.post(body, 'api/signIn').subscribe(
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         console.log('success : ', result);
