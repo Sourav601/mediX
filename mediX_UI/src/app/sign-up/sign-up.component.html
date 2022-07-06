@@ -63,25 +63,25 @@
         >Phone No. is mandatory!</span
       >
     </div>
-
     <div class="mb-3">
-      <label for="password" class="form-label"
-        ><span class="material-symbols-outlined">password</span>Password</label
+      <label for="pincode" class="form-label"
+        ><span class="material-symbols-outlined">pin_drop</span>Pin code</label
       >
       <input
         type="text"
         class="form-control"
-        id="password"
-        name="password"
+        id="pincode"
+        name="pincode"
         required
-        formControlName="password"
+        formControlName="pincode"
       />
       <span
-        *ngIf="password && password.touched && password.invalid"
+        *ngIf="pincode && pincode.touched && pincode.invalid"
         style="color: red"
-        >Password is mandatory!</span
+        >Pin code is mandatory!</span
       >
     </div>
+    
 
     <div class="mb-3">
       <label for="address" class="form-label"
@@ -104,21 +104,24 @@
     </div>
 
     <div class="mb-3">
-      <label for="pincode" class="form-label"
-        ><span class="material-symbols-outlined">pin_drop</span>Pin code</label
+      <label for="password" class="form-label"
+        ><span class="material-symbols-outlined">password</span>Password</label
       >
       <input
         type="text"
         class="form-control"
-        id="pincode"
-        name="pincode"
+        id="password"
+        name="password"
         required
-        formControlName="pincode"
+        formControlName="password"
       />
+      <span style="color:blue">Password must contain, Uppercase & Lowercase letter,
+        <br>Number, Special Character (Ex- @, #, $, *, &).<br>
+      Minimum Length of Password is 8.</span>
       <span
-        *ngIf="pincode && pincode.touched && pincode.invalid"
+        *ngIf="password && password.touched && password.invalid"
         style="color: red"
-        >Pin code is mandatory!</span
+        ><br>Password is mandatory!</span
       >
     </div>
 

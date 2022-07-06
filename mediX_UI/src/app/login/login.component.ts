@@ -9,6 +9,7 @@ import { ApiService } from '../services/api/api.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  showSpinner : boolean = false;
   constructor(private _router: Router, private _api: ApiService) {}
   ngOnInit(): void {}
 
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   });
 
   login() {
+    this.showSpinner = true;
     const body = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
@@ -35,13 +37,12 @@ export class LoginComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         console.log('success : ', result);
-        this._router.navigate(['']);
-        alert('Login Successfull!');
+        window.location.assign("http://localhost:4200/");
       },
       (error: any) => {
         console.log('error : ', error.error.Message);
         alert('Login Unsuccessfull. Please check your email & password.');
-        //this._router.navigate(['dashboard'])
+        this.showSpinner = false;
       }
     );
   }

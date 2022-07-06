@@ -63,14 +63,16 @@
         [disabled]="loginForm.invalid"
         type="submit"
         class="btn btn-success btn-lg"
-      >
-        <span class="material-symbols-outlined">login</span>Login
+      ><span *ngIf="showSpinner===false"><span class="material-symbols-outlined">login</span>Login</span>
+        <span *ngIf="showSpinner"><div class="spinner-border spinner-border-sm" role="status"></div>&nbsp; Please Wait</span>
       </button>
-      <br /><br />New Here? Let's
+      
+      <br /><br>New Here? Let's
       <a style="color: blue; font-weight: bold" routerLink="/signup"
         >Sign Up!</a
       >
-      <br /><br /><br /><a routerLink="/employeeLogin"
+      
+      <br /><br><a routerLink="/employeeLogin"
         ><button type="button" class="btn btn-warning btn-lg">
           <span class="material-symbols-outlined">sensor_occupied</span>Employee
           Login

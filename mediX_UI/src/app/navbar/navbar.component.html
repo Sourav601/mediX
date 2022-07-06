@@ -50,34 +50,34 @@
         </li>
 
         <li>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Enter product name"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
-        </li>
-
-        <li>
           <a
             *ngIf="isAuthorized"
             class="nav-link"
             routerLink="profile"
-            style="margin-left: 15px"
+            style="margin-left: 10px"
             ><span class="material-symbols-outlined">Face</span>Profile</a
           >
           <a
             *ngIf="!isAuthorized"
             class="nav-link"
             routerLink="login"
-            style="margin-left: 15px"
+            style="margin-left: 10px"
             ><span class="material-symbols-outlined">Face</span>Login</a
           >
         </li>
+        
       </ul>
+      
     </div>
+    <form class="d-flex">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Enter product name"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
   </div>
+  
 </nav>
