@@ -9,17 +9,20 @@ import { ItemPageComponent } from './viewProduct/item-page/item-page.component';
 import { ViewByCategoryComponent } from './viewProduct/view-by-category/view-by-category.component';
 
 const routes: Routes = [
-  {path:'',component:HomePageComponent},
-  {path:'login',component:LoginComponent},
-  {path:'employeeLogin',component:EmployeeLoginComponent},
-  {path:'signup', component:SignUpComponent},
-  {path:'profile', component:ProfileComponent},
-  {path:'bycat', component:ViewByCategoryComponent},
-  {path:'item', component: ItemPageComponent}
+  { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'employeeLogin', component: EmployeeLoginComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'bycat/:categoryType/:categoryValue',
+    component: ViewByCategoryComponent,
+  },
+  { path: 'item', component: ItemPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
