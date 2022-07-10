@@ -9,7 +9,7 @@ import { ApiService } from '../services/api/api.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  showSpinner : boolean = false;
+  showSpinner: boolean = false;
   constructor(private _router: Router, private _api: ApiService) {}
   ngOnInit(): void {}
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         console.log('success : ', result);
-        window.location.assign("http://localhost:4200/");
+        window.location.assign('http://localhost:4200/');
       },
       (error: any) => {
         console.log('error : ', error.error.Message);

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from 'src/Home_Components/home-page/home-page.component';
-import { EmployeeLoginComponent } from './employee-login/employee-login.component';
-import { LoginComponent } from './login/login.component';
+
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { HomePageComponent } from './Home_Components/home-page/home-page.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ItemPageComponent } from './viewProduct/item-page/item-page.component';
 import { ViewByCategoryComponent } from './viewProduct/view-by-category/view-by-category.component';

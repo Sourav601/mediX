@@ -7,15 +7,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-by-category.component.css'],
 })
 export class ViewByCategoryComponent implements OnInit {
-  categoryType: string = '';
-  categoryValue: string = '';
+  categoryType: string;
+  categoryValue: string;
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(private _route: ActivatedRoute) {
+    this.categoryType = '';
+    this.categoryValue = '';
+  }
 
   ngOnInit(): void {
     this._route.params.subscribe((params: any) => {
-      console.log(params['categoryType'], params['categoryValue']);
+      this.categoryType = params['categoryType'];
+      this.categoryValue = params['categoryValue'];
     });
-  
   }
 }
