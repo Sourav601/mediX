@@ -21,6 +21,9 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
 import { HomePageComponent } from './Home_Components/home-page/home-page.component';
 import { CarouselComponent } from './Home_Components/carousel/carousel.component';
 import { CategoryCardsComponent } from './Home_Components/category-cards/category-cards.component';
+import { ViewCartComponent } from './cart/view-cart/view-cart.component';
+import { SingleItemInCartComponent } from './cart/single-item-in-cart/single-item-in-cart.component';
+import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { CategoryCardsComponent } from './Home_Components/category-cards/categor
     ViewByCategoryComponent,
     SingleProductInListComponent,
     ItemPageComponent,
-    NavbarLoginComponent
+    NavbarLoginComponent,
+    ViewCartComponent,
+    SingleItemInCartComponent,
+    PrescriptionUPLDComponent
   ],
   imports: [
     BrowserModule,

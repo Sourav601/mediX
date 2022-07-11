@@ -8,6 +8,8 @@ import { HomePageComponent } from './Home_Components/home-page/home-page.compone
 import { ProfileComponent } from './user/profile/profile.component';
 import { ItemPageComponent } from './viewProduct/item-page/item-page.component';
 import { ViewByCategoryComponent } from './viewProduct/view-by-category/view-by-category.component';
+import { ViewCartComponent } from './cart/view-cart/view-cart.component';
+import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
     component: ViewByCategoryComponent,
   },
   { path: 'item', component: ItemPageComponent },
+  {path : 'cart', component: ViewCartComponent},
+  {path: 'prescription', component: PrescriptionUPLDComponent}
 ];
 
 @NgModule({
