@@ -110,6 +110,8 @@
   </div>
 </div>
 -->
+
+<!--
 <div class="row" style="margin-top: 25px">
   <h3>&nbsp; &nbsp; Top Categories</h3>
   <br />
@@ -118,7 +120,7 @@
     <div class="row">
       <div class="col-md-3 center" *ngFor="let category of categoryList">
         <img class="cat-img round-bordered" height="250px" width="250px" src="{{ category.imageUrl }}"
-          [routerLink]="['bycat', 'categories', category.Id]" />
+          [routerLink]="['bycat', 'Categories', category.Id]" />
       </div>
     </div>
     <br />
@@ -135,10 +137,39 @@
       <div class="row">
         <div class="col-md-2" *ngFor="let subCategory of subCategoryList">
           <img class="cat-img" height="300px" width="300px" src="{{ subCategory.imageUrl }}"
-            [routerLink]="['bycat', 'subCategories', subCategory.Id]" />
+            [routerLink]="['bycat', 'SubCategories', subCategory.Id]" />
         </div>
       </div>
     </div>
     <br />
+  </div>
+</div>
+-->
+<div>
+  <div class="container-fluid" style="margin-top: 25px">
+    <h3>&nbsp; All Categories</h3>
+    <div class="image-gallery" style="gap: 170px">
+      <div *ngFor="let Category of categoryList">
+        <img class="cat-img" height="200px" width="200px" src="{{ Category.imageUrl }}"
+          [routerLink]="['bycat', 'SubCategories', Category.Id]" />
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 50px">
+    <div style="text-align: center">
+      <img class="pointer shake" src="https://i.postimg.cc/3Nnn8v48/prescription.png" alt="order with prescription"
+        routerLink="" />
+    </div>
+  </div>
+
+  <div class="container-fluid" style="margin-top: 25px">
+    <h3>&nbsp; All Categories</h3>
+    <div class="image-gallery">
+      <div *ngFor="let subCategory of subCategoryList">
+        <img class="cat-img" height="200px" width="200px" src="{{ subCategory.imageUrl }}"
+          [routerLink]="['bycat', 'SubCategories', subCategory.Id]" />
+      </div>
+    </div>
   </div>
 </div>

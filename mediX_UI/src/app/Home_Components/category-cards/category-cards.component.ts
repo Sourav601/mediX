@@ -19,7 +19,7 @@ export class CategoryCardsComponent implements OnInit {
     this._api.get('api/Categories').subscribe(
       (result: any) => {
         this.categoryList = result;
-        console.log(this.categoryList);
+        //console.log(this.categoryList);
       },
       (err: any) => {
         console.log(err);
@@ -29,7 +29,7 @@ export class CategoryCardsComponent implements OnInit {
     this._api.get('api/Subcategories').subscribe(
       (result: any) => {
         this.subCategoryList = result;
-        console.log(this.subCategoryList);
+        //console.log(this.subCategoryList);
       },
       (err: any) => {
         console.log(err);
