@@ -11,6 +11,7 @@ import { ViewByCategoryComponent } from './viewProduct/view-by-category/view-by-
 import { ViewCartComponent } from './cart/view-cart/view-cart.component';
 import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 import { SuccessComponent } from './success/success.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'item', component: ItemPageComponent },
   {path : 'cart', component: ViewCartComponent},
   {path: 'prescription', component: PrescriptionUPLDComponent},
-  {path: 'success', component: SuccessComponent}
+  {path: 'success', component: SuccessComponent},
+  {path: 'payment', component: PaymentComponent}
 ];
 
 @NgModule({

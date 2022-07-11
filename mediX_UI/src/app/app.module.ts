@@ -25,6 +25,7 @@ import { ViewCartComponent } from './cart/view-cart/view-cart.component';
 import { SingleItemInCartComponent } from './cart/single-item-in-cart/single-item-in-cart.component';
 import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 import { SuccessComponent } from './success/success.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SuccessComponent } from './success/success.component';
     ViewCartComponent,
     SingleItemInCartComponent,
     PrescriptionUPLDComponent,
-    SuccessComponent
+    SuccessComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
