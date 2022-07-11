@@ -24,6 +24,7 @@ import { CategoryCardsComponent } from './Home_Components/category-cards/categor
 import { ViewCartComponent } from './cart/view-cart/view-cart.component';
 import { SingleItemInCartComponent } from './cart/single-item-in-cart/single-item-in-cart.component';
 import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld
     NavbarLoginComponent,
     ViewCartComponent,
     SingleItemInCartComponent,
-    PrescriptionUPLDComponent
+    PrescriptionUPLDComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
