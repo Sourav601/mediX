@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-single-product-in-list',
   templateUrl: './single-product-in-list.component.html',
@@ -7,7 +8,18 @@ import { ApiService } from '../../services/api/api.service';
 })
 export class SingleProductInListComponent implements OnInit {
   @Input() product: any;
-  constructor(private _api: ApiService) {}
+  constructor(private _api: ApiService, private router: Router) { }
+  navigate() {
+    this.router.navigate(['/item'], {
+      state: {
+        name: this.product.Name,
+        price: this.product.Price,
+        img: this.product.ImageUrl,
+        cat: this.product.Category,
+        id: this.product.Id
+      }
+    });
+  }
 
   ngOnInit(): void {
     //console.log(this.product);
