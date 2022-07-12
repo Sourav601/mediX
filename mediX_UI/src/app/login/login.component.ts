@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('mediX_UserId', result.existingUser.Id);
 
         console.log('success : ', result);
-        window.location.assign('http://localhost:4200/');
+        window.location.assign('/');
       },
       (error: any) => {
         console.log('error : ', error.error.Message);
