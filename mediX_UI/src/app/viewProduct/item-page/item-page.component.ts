@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ItemPageComponent implements OnInit {
   show: boolean = false;
-
+  isAuthorized! : boolean;
   id!: number;
   name!: string;
   vendor: string = 'vendor name';
@@ -25,6 +25,16 @@ export class ItemPageComponent implements OnInit {
     this.id = this.router.getCurrentNavigation()?.extras.state!['id'];
   }
   ngOnInit(): void {
+    this._api.get('api/authorized').subscribe(
+      (result: any) => {
+        if (result) {
+          this.isAuthorized = true;
+        }
+      },
+      (error: any) => {
+        this.isAuthorized = false;
+      }
+    );
   }
 
   showfun() {

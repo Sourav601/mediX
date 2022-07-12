@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SingleProductInListComponent implements OnInit {
   @Input() product: any;
+  isAuthorized! : boolean;
   constructor(private _api: ApiService, private router: Router) { }
   navigate() {
     this.router.navigate(['/item'], {
@@ -22,7 +23,16 @@ export class SingleProductInListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //console.log(this.product);
+    this._api.get('api/authorized').subscribe(
+      (result: any) => {
+        if (result) {
+          this.isAuthorized = true;
+        }
+      },
+      (error: any) => {
+        this.isAuthorized = false;
+      }
+    );
   }
 
   addToCart(productId: any): void {

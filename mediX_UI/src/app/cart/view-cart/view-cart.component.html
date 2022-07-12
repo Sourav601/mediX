@@ -2,6 +2,13 @@
   <h3 style="margin-top: 10px; margin-bottom: 20px">Your Cart</h3>
 
   <div class="list-group">
+    <div *ngIf="cartList.length==0" style="text-align:center; margin-top:10%; margin-bottom: 10%;">
+      <span class="material-symbols-outlined" style="font-size:80px ;">
+        production_quantity_limits
+        </span><br><br>
+      <h4 >
+      Your Cart is Empty!
+    </h4></div>
     <div
       *ngFor="let cart of cartList"
       class="container list-group-item list-group-item-action"
@@ -55,7 +62,7 @@
     </div>
   </div>
 
-  <div style="text-align: center">
+  <div *ngIf="cartList.length!=0" style="text-align: center">
     <button type="button" class="btn btn-success btn-lg" routerLink="/payment">
       <span class="material-symbols-outlined"> arrow_circle_right </span
       >Continue

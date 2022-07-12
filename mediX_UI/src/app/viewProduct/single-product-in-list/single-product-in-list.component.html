@@ -13,9 +13,12 @@
         <b><em>Rs. {{product.Price}}</em></b>
     </div>
     <div class="col-md-3"><br>
-        <button type="button" class="btn btn-success" (click) = 'addToCart(product.Id)'><span class="material-symbols-outlined">
+        <button *ngIf="isAuthorized" type="button" class="btn btn-success" (click) = 'addToCart(product.Id)'><span class="material-symbols-outlined">
             double_arrow
             </span>Add to Cart</button>
+            <button *ngIf="!isAuthorized" type="button" class="btn btn-success" routerLink="/notloggedin"><span class="material-symbols-outlined">
+                double_arrow
+                </span>Add to Cart</button>
     </div>
 </div>
 </div>

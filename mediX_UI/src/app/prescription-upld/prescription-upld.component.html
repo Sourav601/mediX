@@ -25,9 +25,13 @@
     <span *ngIf = "phone.touched && phone.invalid" style="color:red;">Invalid Phone Number!</span>
   </div>
   <div class="mb-3" style="text-align: center;">
-    <button [disabled]="form.invalid" type="submit" class="btn btn-success btn-lg" ><span class="material-symbols-outlined">
+    <button [disabled]="form.invalid" type="submit" class="btn btn-success btn-lg" >
+      <span *ngIf="!showSpinner"><span class="material-symbols-outlined">
       task_alt
-      </span>Confirm</button>
+      </span>Confirm</span>
+      <span *ngIf="showSpinner">
+        <div class="spinner-border spinner-border-sm" role="status"></div>&nbsp; Please Wait
+      </span></button>
   </div>
 
 </form>

@@ -12,6 +12,7 @@ import { ViewCartComponent } from './cart/view-cart/view-cart.component';
 import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 import { SuccessComponent } from './success/success.component';
 import { PaymentComponent } from './payment/payment.component';
+import { NotLoggedInComponent } from './not-logged-in/not-logged-in.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path : 'cart', component: ViewCartComponent},
   {path: 'prescription', component: PrescriptionUPLDComponent},
   {path: 'success', component: SuccessComponent},
-  {path: 'payment', component: PaymentComponent}
+  {path: 'payment', component: PaymentComponent},
+  {path: 'notloggedin', component: NotLoggedInComponent}
 ];
 
 @NgModule({

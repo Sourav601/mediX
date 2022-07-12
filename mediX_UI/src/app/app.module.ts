@@ -26,6 +26,7 @@ import { SingleItemInCartComponent } from './cart/single-item-in-cart/single-ite
 import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld.component';
 import { SuccessComponent } from './success/success.component';
 import { PaymentComponent } from './payment/payment.component';
+import { NotLoggedInComponent } from './not-logged-in/not-logged-in.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PaymentComponent } from './payment/payment.component';
     SingleItemInCartComponent,
     PrescriptionUPLDComponent,
     SuccessComponent,
-    PaymentComponent
+    PaymentComponent,
+    NotLoggedInComponent
   ],
   imports: [
     BrowserModule,

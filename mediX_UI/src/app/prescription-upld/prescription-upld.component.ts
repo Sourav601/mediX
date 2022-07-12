@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PrescriptionUPLDComponent implements OnInit {
   file: any = null;
-
+ showSpinner : boolean = false;
   constructor(private _api: ApiService, private _router: Router) {}
 
   ngOnInit(): void {}
@@ -18,6 +18,7 @@ export class PrescriptionUPLDComponent implements OnInit {
     this.file = event.target.files[0];
   }
   onSubmit(contactForm: any) {
+    this.showSpinner= true;
     //console.log(this.file);
     let formData = new FormData();
     formData.append('img', this.file);
@@ -29,6 +30,7 @@ export class PrescriptionUPLDComponent implements OnInit {
       },
       (err: any) => {
         console.log(err);
+        this.showSpinner = false;
         alert('Something worng happend. Try again after some time');
       }
     );
