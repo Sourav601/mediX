@@ -21,6 +21,14 @@ export class ApiService {
     return this._http.post<any>(url, body, { headers });
   }
 
+  postFile(body: Object, rel_url: string): Observable<any> {
+    const url = environment.url + rel_url;
+    const headers = {
+      Authorization: this.mediX_token,
+    };
+    return this._http.post<any>(url, body, { headers });
+  }
+
   get(rel_url: string): Observable<any> {
     const url = environment.url + rel_url;
     const headers = {
@@ -28,5 +36,14 @@ export class ApiService {
       Authorization: this.mediX_token,
     };
     return this._http.get<any>(url, { headers });
+  }
+
+  delete(rel_url: string): Observable<any> {
+    const url = environment.url + rel_url;
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: this.mediX_token,
+    };
+    return this._http.delete<any>(url, { headers });
   }
 }

@@ -28,7 +28,7 @@ export class SingleProductInListComponent implements OnInit {
           alert("Item Added to cart");
         },
         (err: any) => {
-          alert(err);
+          alert('error');
         }
       );
     //console.log(localStorage.getItem('mediX_UserId'), productId);

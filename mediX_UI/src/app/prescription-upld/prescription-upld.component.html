@@ -1,13 +1,13 @@
 <h3 class="mb-4" style="text-align: center; margin-top: 5%">
     Upload Your Prescription to Continue
   </h3>
-  
-<form class="col-sm-4" style="margin-left: auto; margin-right: auto;" #form="ngForm">
+
+<form class="col-sm-4" style="margin-left: auto; margin-right: auto;" #form="ngForm"  (ngSubmit)="onSubmit(form)">
   <div class="mb-3">
     <label for="formFile" class="form-label"><span class="material-symbols-outlined">
       file_upload
       </span>Select Prescription Image</label>
-    <input class="form-control" type="file" id="formFile" name="formFile" required ngModel #file = "ngModel">
+    <input class="form-control" type="file" id="formFile" name="formFile" required ngModel #file = "ngModel" (change) = 'getFile($event)'>
     <span *ngIf = "file.touched && file.invalid" style="color:red;">Prescription is Mandatory!</span>
   </div>
   <div class="mb-3">
@@ -25,10 +25,9 @@
     <span *ngIf = "phone.touched && phone.invalid" style="color:red;">Invalid Phone Number!</span>
   </div>
   <div class="mb-3" style="text-align: center;">
-    <button [disabled]="form.invalid" type="button" class="btn btn-success btn-lg" routerLink="/success"><span class="material-symbols-outlined">
+    <button [disabled]="form.invalid" type="submit" class="btn btn-success btn-lg" ><span class="material-symbols-outlined">
       task_alt
       </span>Confirm</button>
   </div>
-  
+
 </form>
-  
