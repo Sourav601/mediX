@@ -1,20 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ApiService } from '../../services/api/api.service';
 @Component({
   selector: 'app-single-product-in-list',
   templateUrl: './single-product-in-list.component.html',
-  styleUrls: ['./single-product-in-list.component.css']
+  styleUrls: ['./single-product-in-list.component.css'],
 })
 export class SingleProductInListComponent implements OnInit {
-   
-  name : string = 'product name';
-  vendor : string = 'vendor name';
-  category : string = 'category name';
-  price : number = 100.0;
-  description : string = 'product description';
-  img_url : string = "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-30-capsules-2-1654077741.jpg?dim=224x0&dpr=1.25&q=100";
-  constructor() { }
+  @Input() product: any;
+  constructor(private _api: ApiService) {}
 
   ngOnInit(): void {
+    //console.log(this.product);
   }
 
+  addToCart(productId: any): void {
+    this._api
+      .post(
+        {
+          UserId: localStorage.getItem('mediX_UserId'),
+          ProductsId: productId,
+          Quantity: 1,
+        },
+        'api/carts'
+      )
+      .subscribe(
+        (result: any) => {
+          alert("Item Added to cart");
+        },
+        (err: any) => {
+          alert(err);
+        }
+      );
+    //console.log(localStorage.getItem('mediX_UserId'), productId);
+  }
 }

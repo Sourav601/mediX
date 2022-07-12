@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
     this._api.post(body, 'api/signIn').subscribe(
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
+        localStorage.setItem('mediX_UserId', result.existingUser.Id);
+
         console.log('success : ', result);
         window.location.assign('http://localhost:4200/');
       },

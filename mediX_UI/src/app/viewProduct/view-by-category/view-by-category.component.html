@@ -1,7 +1,7 @@
 <div class="container">
     <h3 style="margin-top:10px; margin-bottom:20px">Medicines by Category</h3>
     <div class="list-group">
-            <app-single-product-in-list></app-single-product-in-list>
+            <app-single-product-in-list *ngFor="let item of productList" [product] = 'item'></app-single-product-in-list>
     </div>
-    
+
 </div>

@@ -10,10 +10,11 @@ import { ApiService } from '../../services/api/api.service';
 export class ViewByCategoryComponent implements OnInit {
   categoryType: string;
   categoryValue: string;
-
+  productList: any;
   constructor(private _route: ActivatedRoute, private _api: ApiService) {
     this.categoryType = '';
     this.categoryValue = '';
+    this.productList = [];
   }
 
   ngOnInit(): void {
@@ -21,11 +22,12 @@ export class ViewByCategoryComponent implements OnInit {
       this.categoryType = params['categoryType'];
       this.categoryValue = params['categoryValue'];
 
-      console.log(this.categoryType, this.categoryValue);
+      //console.log(this.categoryType, this.categoryValue);
       let url = 'api/products/' + this.categoryType + '/' + this.categoryValue;
       this._api.get(url).subscribe(
         (result: any) => {
-          console.log(result);
+          //console.log(result);
+          this.productList = result;
         },
         (err: any) => {
           console.log(err);
