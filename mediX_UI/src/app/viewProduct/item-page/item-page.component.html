@@ -26,9 +26,11 @@
                     keyboard_double_arrow_up
                 </span>Country of Origin : <b>India</b>
             </div>
-            <br><button *ngIf="isAuthorized" type="button" class="btn btn-lg btn-success" (click) = 'addToCart(id)'><span class="material-symbols-outlined">
-                    add_shopping_cart
-                </span>Add to Cart</button>
+            <br><button *ngIf="isAuthorized" type="button" class="btn btn-lg btn-success" (click) = 'addToCart(id)'><span
+                *ngIf="showSpinner===false"><span class="material-symbols-outlined">add_shopping_cart</span>Add to Cart</span>
+              <span *ngIf="showSpinner">
+                <div class="spinner-border spinner-border-sm" role="status"></div>&nbsp; Please Wait
+              </span></button>
                 <button *ngIf="!isAuthorized" type="button" class="btn btn-lg btn-success" routerLink="/notloggedin"><span class="material-symbols-outlined">
                     add_shopping_cart
                 </span>Add to Cart</button>

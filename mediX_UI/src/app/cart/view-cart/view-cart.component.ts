@@ -44,7 +44,7 @@ export class ViewCartComponent implements OnInit {
   alertremoved(){
     Swal.fire({
       position: 'top',
-      icon: 'success',
+      icon: 'info',
       html: 'Item removed Successfully!',
       showConfirmButton: false,
       timer: 1500,

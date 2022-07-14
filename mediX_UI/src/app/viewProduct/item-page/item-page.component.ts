@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-item-page',
   templateUrl: './item-page.component.html',
@@ -16,7 +17,7 @@ export class ItemPageComponent implements OnInit {
   price!: number;
   description: string = 'product desc';
   img_url: string = '';
-
+  showSpinner : boolean = false;
   constructor(private router: Router, private _api: ApiService) {
     this.name = this.router.getCurrentNavigation()?.extras.state!['name'];
     this.price = this.router.getCurrentNavigation()?.extras.state!['price'];
@@ -46,6 +47,7 @@ export class ItemPageComponent implements OnInit {
     this.show = false;
   }
   addToCart(productId: any): void {
+    this.showSpinner = true;
     this._api
       .post(
         {
@@ -57,12 +59,32 @@ export class ItemPageComponent implements OnInit {
       )
       .subscribe(
         (result: any) => {
-          alert("Item Added to cart");
+          this.showSuccess();
+          this.showSpinner = false;
         },
         (err: any) => {
-          alert('error');
+          this.showFailure();
+          this.showSpinner = false;
         }
       );
+  }
+  showSuccess(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Successfully Added to Cart!',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+  showFailure(){
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      title: 'An Error Occurred!',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
