@@ -17,7 +17,9 @@ export class SingleProductInListComponent implements OnInit {
         price: this.product.Price,
         img: this.product.ImageUrl,
         cat: this.product.Category,
-        id: this.product.Id
+        id: this.product.Id,
+        desc: this.product.Descriptions,
+        vendor: this.product.Vendor
       }
     });
   }

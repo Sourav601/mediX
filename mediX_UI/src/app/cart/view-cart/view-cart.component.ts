@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-view-cart',
   templateUrl: './view-cart.component.html',
@@ -30,7 +30,7 @@ export class ViewCartComponent implements OnInit {
   removeCart(cartId: any): void {
     this._api.delete('api/carts/' + cartId).subscribe(
       (result: any) => {
-        alert('Item removed from cart');
+        this.alertremoved();
         this.cartList = this.cartList.filter((c: any) => {
           c.Id != cartId;
         });
@@ -40,5 +40,14 @@ export class ViewCartComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  alertremoved(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      html: 'Item removed Successfully!',
+      showConfirmButton: false,
+      timer: 1500,
+    })
   }
 }

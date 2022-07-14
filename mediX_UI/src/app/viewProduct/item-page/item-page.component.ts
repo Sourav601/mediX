@@ -23,6 +23,8 @@ export class ItemPageComponent implements OnInit {
     this.img_url = this.router.getCurrentNavigation()?.extras.state!['img'];
     this.category = this.router.getCurrentNavigation()?.extras.state!['cat'];
     this.id = this.router.getCurrentNavigation()?.extras.state!['id'];
+    this.description = this.router.getCurrentNavigation()?.extras.state!['desc'];
+    this.vendor = this.router.getCurrentNavigation()?.extras.state!['vendor'];
   }
   ngOnInit(): void {
     this._api.get('api/authorized').subscribe(

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,18 +37,26 @@ export class LoginComponent implements OnInit {
       (result: any) => {
         localStorage.setItem('mediX_Auth', result.Authorization);
         localStorage.setItem('mediX_UserId', result.existingUser.Id);
-
         console.log('success : ', result);
         window.location.assign('/');
+        
       },
       (error: any) => {
-        console.log('error : ', error.error.Message);
-        alert('Login Unsuccessfull. Please check your email & password.');
+        this.alertError();
         this.showSpinner = false;
       }
     );
   }
-
+  alertError(){
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      html: '<h5>Login Unsuccessfull. Please check your email & password.</h5>',
+      showConfirmButton: false,
+      timer: 3000,
+    })
+    
+  }
   get email() {
     return this.loginForm.get('email');
   }
