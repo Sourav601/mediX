@@ -56,9 +56,9 @@
           <a
             *ngIf="isAuthorized"
             class="nav-link"
-            routerLink="profile"
+            (click)="logout()"
             style="margin-left: 10px"
-            ><span class="material-symbols-outlined">Face</span>Profile</a
+            ><span class="material-symbols-outlined">Face</span>Logout</a
           >
           <a
             *ngIf="!isAuthorized"

@@ -24,4 +24,8 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
+  logout(): void {
+    localStorage.removeItem('mediX_Auth');
+    window.location.assign('http://localhost:4200/');
+  }
 }
