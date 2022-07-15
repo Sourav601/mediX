@@ -45,8 +45,11 @@
         <div class="col-md-4" style="text-align: center">
           <br />
           <button type="button" class="btn btn-danger" (click)="removeCart(cart.Id)">
-            <span class="material-symbols-outlined"> close </span>Remove from
-            Cart
+            <span *ngIf="showSpinner===false || deleteId != cart.Id"><span class="material-symbols-outlined">close</span>Remove from
+              Cart</span>
+            <span *ngIf="showSpinner && deleteId==cart.Id">
+              <div class="spinner-border spinner-border-sm" role="status"></div>&nbsp; Please Wait
+            </span>
           </button>
         </div>
       </div>

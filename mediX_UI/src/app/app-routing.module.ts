@@ -13,6 +13,9 @@ import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld
 import { SuccessComponent } from './success/success.component';
 import { PaymentComponent } from './payment/payment.component';
 import { NotLoggedInComponent } from './not-logged-in/not-logged-in.component';
+import { AboutComponent } from './misc/about/about.component';
+import { TermsComponent } from './misc/terms/terms.component';
+import { PrivacyPolicyComponent } from './misc/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -29,7 +32,10 @@ const routes: Routes = [
   {path: 'prescription', component: PrescriptionUPLDComponent},
   {path: 'success', component: SuccessComponent},
   {path: 'payment', component: PaymentComponent},
-  {path: 'notloggedin', component: NotLoggedInComponent}
+  {path: 'notloggedin', component: NotLoggedInComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 't&c', component: TermsComponent},
+  {path: 'privacypolicy', component : PrivacyPolicyComponent}
 ];
 
 @NgModule({

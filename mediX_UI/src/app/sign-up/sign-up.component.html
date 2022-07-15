@@ -108,7 +108,7 @@
         ><span class="material-symbols-outlined">password</span>Password</label
       >
       <input
-        type="text"
+        type="password"
         class="form-control"
         id="password"
         name="password"
@@ -131,7 +131,11 @@
         type="submit"
         class="btn btn-warning btn-lg"
       >
-        <span class="material-symbols-outlined">contactless</span>Sign Up
+      <span
+      *ngIf="showSpinner===false"><span class="material-symbols-outlined">contactless</span>Signup</span>
+    <span *ngIf="showSpinner">
+      <div class="spinner-border spinner-border-sm" role="status"></div>&nbsp; Please Wait
+    </span>
       </button>
     </div>
   </form>

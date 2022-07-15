@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-prescription-upld',
   templateUrl: './prescription-upld.component.html',
@@ -22,7 +22,7 @@ export class PrescriptionUPLDComponent implements OnInit {
     //console.log(this.file);
     let formData = new FormData();
     formData.append('img', this.file);
-    formData.append('userId', localStorage.getItem('mediX_UserId') || '');
+    formData.append('userId', localStorage.getItem('mediX_UserId')!);
     this._api.postFile(formData, 'api/orders').subscribe(
       (result: any) => {
         //console.log(result);
@@ -31,8 +31,17 @@ export class PrescriptionUPLDComponent implements OnInit {
       (err: any) => {
         console.log(err);
         this.showSpinner = false;
-        alert('Something worng happend. Try again after some time');
+        this.showFailure();
       }
     );
+  }
+  showFailure(){
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      title: 'An Error Occurred!',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 }

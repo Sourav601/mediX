@@ -83,7 +83,7 @@ export class ItemPageComponent implements OnInit {
       icon: 'error',
       title: 'An Error Occurred!',
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     })
   }
 }

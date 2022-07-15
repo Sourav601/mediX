@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
+  showSpinner : boolean = false;
   constructor(private _router: Router, private _api: ApiService) {}
 
   ngOnInit(): void {}
@@ -43,6 +44,7 @@ export class SignUpComponent implements OnInit {
   });
 
   signUp() {
+    this.showSpinner = true;
     const body = {
       name: this.signUpForm.value.userName,
       email: this.signUpForm.value.email,
@@ -55,17 +57,35 @@ export class SignUpComponent implements OnInit {
     this._api.post(body, 'api/signUp').subscribe(
       (result: any) => {
         console.log('success : ', result);
+        this.showSpinner = false;
         this._router.navigate(['login']);
-        alert('Sign up Successfull! Please Login with your New Account!');
+        this.showSuccess();
       },
       (error: any) => {
         console.log('error : ', error);
-        alert('Sign up Failed! Please try again!');
-        //this._router.navigate(['dashboard']);
+        this.showSpinner = false;
+        this.showFailure();
       }
     );
   }
-
+  showSuccess(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      html: '<h5>Sign up Successfull!</h5><h6>Please Login with your New Account!</h6>',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+  showFailure(){
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      title: 'Sign up Failed! Please try again!',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
   get userName() {
     return this.signUpForm.get('userName');
   }

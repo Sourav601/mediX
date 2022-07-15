@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 export class ViewCartComponent implements OnInit {
   cartList: any;
   url: string;
+  showSpinner : boolean = false;
+  deleteId : number = 0;
   constructor(private _api: ApiService) {
     this.cartList = [];
     this.url = 'api/Carts/User/' + localStorage.getItem('mediX_UserId');
@@ -28,9 +30,12 @@ export class ViewCartComponent implements OnInit {
   }
 
   removeCart(cartId: any): void {
+    this.deleteId = cartId;
+    this.showSpinner = true;
     this._api.delete('api/carts/' + cartId).subscribe(
       (result: any) => {
         this.alertremoved();
+        this.showSpinner = false;
         this.cartList = this.cartList.filter((c: any) => {
           c.Id != cartId;
         });
@@ -38,6 +43,9 @@ export class ViewCartComponent implements OnInit {
       },
       (err: any) => {
         console.log(err);
+        this.showSpinner = false;
+        this.alertError();
+        
       }
     );
   }
@@ -47,7 +55,16 @@ export class ViewCartComponent implements OnInit {
       icon: 'info',
       html: 'Item removed Successfully!',
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000,
+    })
+  }
+  alertError(){
+    Swal.fire({
+      position: 'top',
+      icon: 'error',
+      html: 'Failed to Remove!',
+      showConfirmButton: false,
+      timer: 2000,
     })
   }
 }

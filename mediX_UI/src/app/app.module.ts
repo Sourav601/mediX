@@ -27,6 +27,9 @@ import { PrescriptionUPLDComponent } from './prescription-upld/prescription-upld
 import { SuccessComponent } from './success/success.component';
 import { PaymentComponent } from './payment/payment.component';
 import { NotLoggedInComponent } from './not-logged-in/not-logged-in.component';
+import { AboutComponent } from './misc/about/about.component';
+import { TermsComponent } from './misc/terms/terms.component';
+import { PrivacyPolicyComponent } from './misc/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { NotLoggedInComponent } from './not-logged-in/not-logged-in.component';
     PrescriptionUPLDComponent,
     SuccessComponent,
     PaymentComponent,
-    NotLoggedInComponent
+    NotLoggedInComponent,
+    AboutComponent,
+    TermsComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
