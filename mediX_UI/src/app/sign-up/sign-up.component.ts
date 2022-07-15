@@ -72,7 +72,7 @@ export class SignUpComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      html: '<h5>Sign up Successfull!</h5><h6>Please Login with your New Account!</h6>',
+      html: '<h5>Sign up Successfull!</h5><h5>Please Login with your New Account!</h5>',
       showConfirmButton: false,
       timer: 2000
     })

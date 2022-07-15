@@ -53,7 +53,7 @@ export class ViewCartComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'info',
-      html: 'Item removed Successfully!',
+      title: 'Item removed Successfully!',
       showConfirmButton: false,
       timer: 2000,
     })
@@ -62,7 +62,7 @@ export class ViewCartComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'error',
-      html: 'Failed to Remove!',
+      title: 'Failed to Remove!',
       showConfirmButton: false,
       timer: 2000,
     })

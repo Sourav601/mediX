@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'error',
-      html: '<h5>Login Unsuccessfull. Please check your email & password.</h5>',
+      html: '<h5>Login Unsuccessfull.</h5><h5> Please check your email & password.</h5>',
       showConfirmButton: false,
       timer: 3000,
     })
